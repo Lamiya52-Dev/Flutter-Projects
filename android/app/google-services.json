@@ -1,0 +1,162 @@
+{
+  "project_info": {
+    "project_number": "229261543898",
+    "project_id": "fir-demo-600d7",
+    "storage_bucket": "fir-demo-600d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:1d25a0eac042f42a5618e3",
+        "android_client_info": {
+          "package_name": "com.example.lamiyafirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:c55c6eba4c78af235618e3",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:96ecd529aa93fdd15618e3",
+        "android_client_info": {
+          "package_name": "com.example.project3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:11661055270f892c5618e3",
+        "android_client_info": {
+          "package_name": "com.example.todolamiya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:654a53fa1b13c22a5618e3",
+        "android_client_info": {
+          "package_name": "com.example.todotebby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:35795786205d04845618e3",
+        "android_client_info": {
+          "package_name": "com.exmaple.firebasedemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:31ed15c3093577105618e3",
+        "android_client_info": {
+          "package_name": "com.nodetolearn.lamiya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229261543898:android:1c26099f99f314b05618e3",
+        "android_client_info": {
+          "package_name": "com.nodetolearn.lamiyafirstapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlhdkcXDSo1u6Y2D32qMTHCt120mqiUY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
