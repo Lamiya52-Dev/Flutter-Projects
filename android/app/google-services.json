@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "532609359373",
+    "project_id": "projects-161bc",
+    "storage_bucket": "projects-161bc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532609359373:android:49dc71fc88fc00bc703f44",
+        "android_client_info": {
+          "package_name": "com.example.ntlwallpaper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI7yTb0byagRep1yUNbV4HC4Bjd2xPF5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532609359373:android:b11a21576de2ceab703f44",
+        "android_client_info": {
+          "package_name": "com.example.wallpaperapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI7yTb0byagRep1yUNbV4HC4Bjd2xPF5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
