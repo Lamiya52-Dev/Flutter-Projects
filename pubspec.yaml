@@ -53,6 +53,7 @@ dependencies:
   gallery_saver:
   google_sign_in:
   auth_buttons:
+  image_editor:
 
 dev_dependencies:
   flutter_test:

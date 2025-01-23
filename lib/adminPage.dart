@@ -18,7 +18,20 @@ class adminPage extends StatefulWidget {
 class _adminPageState extends State<adminPage> {
   var _curindex = 0;
   var _pgcon = PageController();
+  bool isDarkMode = false;
+  Color primaryColor = Colors.deepPurple;
 
+  void funTheme(bool value) {
+    setState(() {
+      isDarkMode = value;
+    });
+  }
+
+  void funColor(Color value) {
+    setState(() {
+      primaryColor = value;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +55,8 @@ class _adminPageState extends State<adminPage> {
 
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                              builder: (context) => loginPage(),
+                              builder: (context) => loginPage(  changeColor: funColor,
+                                changeTheme: funTheme,),
                             ),
                             (route) => false,
                           );

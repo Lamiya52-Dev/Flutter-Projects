@@ -21,20 +21,40 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isDarkMode = false;
+  Color primaryColor = Colors.deepPurple;
+
+  void funTheme(bool value) {
+    setState(() {
+      isDarkMode = value;
+    });
+  }
+
+  void funColor(Color value) {
+    setState(() {
+      primaryColor = value;
+    });
+  }
+
+// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NodeWally',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
+      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       // Automatically follow system theme
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
+          seedColor: primaryColor,
           brightness: Brightness.light, // Light theme settings
         ),
         useMaterial3: true,
@@ -49,7 +69,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: primaryColor,
           brightness: Brightness.dark, // Dark theme settings
         ),
         useMaterial3: true,
@@ -67,7 +87,10 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      home: loginPage(),
+      home: loginPage(
+        changeColor: funColor,
+        changeTheme: funTheme,
+      ),
     );
   }
 }

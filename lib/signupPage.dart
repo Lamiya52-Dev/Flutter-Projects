@@ -16,6 +16,20 @@ class _signupPageState extends State<signupPage> {
   var _email = TextEditingController();
   var _psd = TextEditingController();
   var _cpsd = TextEditingController();
+  bool isDarkMode = false;
+  Color primaryColor = Colors.deepPurple;
+
+  void funTheme(bool value) {
+    setState(() {
+      isDarkMode = value;
+    });
+  }
+
+  void funColor(Color value) {
+    setState(() {
+      primaryColor = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +104,10 @@ class _signupPageState extends State<signupPage> {
                           ));
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => loginPage(),
+                            builder: (context) => loginPage(
+                              changeColor: funColor,
+                              changeTheme: funTheme,
+                            ),
                           ));
                         });
                       },
@@ -126,7 +143,10 @@ class _signupPageState extends State<signupPage> {
                         onPressed: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => loginPage(),
+                            builder: (context) => loginPage(
+                              changeColor: funColor,
+                              changeTheme: funTheme,
+                            ),
                           ));
                         },
                         child: Text("Login"))

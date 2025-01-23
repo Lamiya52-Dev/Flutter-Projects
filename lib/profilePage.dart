@@ -8,8 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'homePage.dart';
-
 class profilePage extends StatefulWidget {
   const profilePage({super.key});
 
@@ -76,46 +74,72 @@ class _profilePageState extends State<profilePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: _img == null
-                            ? Container(
-                                height: 200,
-                                width: 200,
-                                child: profileimg == null
-                                    ? Center(
-                                        child: Text("No Image Found"),
-                                      )
-                                    : CachedNetworkImage(
-                                        imageUrl: profileimg,
-                                        fit: BoxFit.cover,
-                                        height: 200,
-                                        width: 200,
-                                        placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator(),
-                                        ),
-                                      ))
-                            : Container(
-                                height: 200,
-                                width: 200,
-                                child: _img == null
-                                    ? Center(
-                                        child: Text("No Image Found"),
-                                      )
-                                    : _img == null
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: _img == null
+                                ? Container(
+                                    height: 200,
+                                    width: 200,
+                                    child: profileimg == null
                                         ? Center(
                                             child: Text("No Image Found"),
                                           )
-                                        : Image.file(
-                                            File(_img!.path),
+                                        : CachedNetworkImage(
+                                            imageUrl: profileimg,
                                             fit: BoxFit.cover,
-                                          ),
-                              ),
+                                            height: 200,
+                                            width: 200,
+                                            placeholder: (context, url) =>
+                                                Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            ),
+                                          ))
+                                : Container(
+                                    height: 200,
+                                    width: 200,
+                                    child: _img == null
+                                        ? Center(
+                                            child: Text("No Image Found"),
+                                          )
+                                        : _img == null
+                                            ? Center(
+                                                child: Text("No Image Found"),
+                                              )
+                                            : Image.file(
+                                                File(_img!.path),
+                                                fit: BoxFit.cover,
+                                              ),
+                                  ),
+                          ),
+                          Positioned(
+                            right: 20,
+                            bottom: 0,
+                            child: IconButton(
+                              icon: Icon(Icons.add),
+                              color: Colors.white,
+                              onPressed: _pickImage,
+                              style: ButtonStyle(
+                                  backgroundColor: WidgetStatePropertyAll(
+                                      Colors.deepPurple)),
+                            ),
+                          ),
+                          Positioned(
+                            left: 20,
+                            bottom: 0,
+                            child: IconButton(
+                              icon: Icon(Icons.edit),
+                              color: Colors.white,
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                  backgroundColor: WidgetStatePropertyAll(
+                                      Colors.deepPurple)),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: _pickImage,
-                      child: Text("Select Image from Gallery"),
                     ),
                     SizedBox(
                       height: 40,
@@ -194,10 +218,6 @@ class _profilePageState extends State<profilePage> {
                                         "purl", value["profile_img"]);
                                     prefs.setBool("islogin", true);
                                     Navigator.of(context).pop();
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) => homePage(),
-                                    ));
                                   },
                                 );
                               },

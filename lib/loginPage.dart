@@ -10,7 +10,11 @@ import 'package:wallpaperapp/homePage.dart';
 import 'package:wallpaperapp/signupPage.dart';
 
 class loginPage extends StatefulWidget {
-  const loginPage({super.key});
+  final Function changeTheme;
+  final Function changeColor;
+
+  const loginPage(
+      {super.key, required this.changeTheme, required this.changeColor});
 
   @override
   State<loginPage> createState() => _loginPageState();
@@ -33,7 +37,10 @@ class _loginPageState extends State<loginPage> {
       } else {
         Navigator.of(context).pop();
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => homePage(),
+          builder: (context) => homePage(
+            changeColor: widget.changeColor,
+            changeTheme: widget.changeTheme,
+          ),
         ));
       }
     }
@@ -71,7 +78,10 @@ class _loginPageState extends State<loginPage> {
             prefs.setBool("islogin", true);
             Navigator.of(context).pop();
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => homePage(),
+              builder: (context) => homePage(
+                changeColor: widget.changeColor,
+                changeTheme: widget.changeTheme,
+              ),
             ));
           } else {
             FirebaseFirestore.instance.collection("Users").doc(user!.uid).set({
@@ -89,7 +99,10 @@ class _loginPageState extends State<loginPage> {
               prefs.setBool("islogin", true);
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => homePage(),
+                builder: (context) => homePage(
+                  changeColor: widget.changeColor,
+                  changeTheme: widget.changeTheme,
+                ),
               ));
             });
           }
@@ -163,7 +176,10 @@ class _loginPageState extends State<loginPage> {
                           prefs.setBool("islogin", true);
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => homePage(),
+                            builder: (context) => homePage(
+                              changeColor: widget.changeColor,
+                              changeTheme: widget.changeTheme,
+                            ),
                           ));
                         });
                       }

@@ -14,7 +14,11 @@ import 'package:wallpaperapp/userWalls.dart';
 import 'loginPage.dart';
 
 class homePage extends StatefulWidget {
-  const homePage({super.key});
+  final Function changeTheme;
+  final Function changeColor;
+
+  const homePage(
+      {super.key, required this.changeTheme, required this.changeColor});
 
   @override
   State<homePage> createState() => _homePageState();
@@ -28,6 +32,8 @@ class _homePageState extends State<homePage> {
   var email = "";
   var _curindex = 0;
   var _pgcon = PageController();
+  bool isDarkMode = false;
+  Color primaryColor = Colors.deepPurple;
 
   @override
   void initState() {
@@ -82,7 +88,6 @@ class _homePageState extends State<homePage> {
           child: Column(
             children: [
               UserAccountsDrawerHeader(
-
                 accountName: Text("Welcome! ${uname}"),
                 accountEmail: Text("$email"),
                 currentAccountPicture: CircleAvatar(
@@ -106,7 +111,10 @@ class _homePageState extends State<homePage> {
 
                                   Navigator.of(context).pushAndRemoveUntil(
                                     MaterialPageRoute(
-                                      builder: (context) => loginPage(),
+                                      builder: (context) => loginPage(
+                                        changeColor: widget.changeColor,
+                                        changeTheme: widget.changeTheme,
+                                      ),
                                     ),
                                     (route) => false,
                                   );
@@ -190,6 +198,130 @@ class _homePageState extends State<homePage> {
                 leading: Icon(Icons.favorite),
               ),
               ListTile(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SwitchListTile(
+                              title: Text("Dark Mode"),
+                              value: isDarkMode,
+                              onChanged: (value) {
+                                setState(() {
+                                  isDarkMode = value;
+                                  widget.changeTheme(value);
+                                });
+                              },
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                InkWell(
+                                  child: CircleAvatar(
+                                    backgroundColor:
+                                        primaryColor == Colors.deepPurple
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                    child: CircleAvatar(
+                                      child: Icon(
+                                        Icons.check,
+                                        color: primaryColor == Colors.deepPurple
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                      ),
+                                      radius: 15,
+                                      backgroundColor: Colors.deepPurple,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      primaryColor = Colors.deepPurple;
+                                      widget.changeColor(Colors.deepPurple);
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: CircleAvatar(
+                                    backgroundColor:
+                                        primaryColor == Colors.deepOrange
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                    child: CircleAvatar(
+                                      radius: 15,
+                                      child: Icon(
+                                        Icons.check,
+                                        color: primaryColor == Colors.deepOrange
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                      ),
+                                      backgroundColor: Colors.deepOrange,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      primaryColor = Colors.deepOrange;
+                                      widget.changeColor(Colors.deepOrange);
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: CircleAvatar(
+                                    backgroundColor: primaryColor == Colors.red
+                                        ? Colors.white
+                                        : Colors.transparent,
+                                    child: CircleAvatar(
+                                      radius: 15,
+                                      backgroundColor: Colors.red,
+                                      child: Icon(
+                                        Icons.check,
+                                        color: primaryColor == Colors.red
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      primaryColor = Colors.red;
+                                      widget.changeColor(Colors.red);
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: CircleAvatar(
+                                    backgroundColor: primaryColor == Colors.blue
+                                        ? Colors.white
+                                        : Colors.transparent,
+                                    child: CircleAvatar(
+                                      radius: 15,
+                                      backgroundColor: Colors.blue,
+                                      child: Icon(
+                                        Icons.check,
+                                        color: primaryColor == Colors.blue
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      primaryColor = Colors.blue;
+                                      widget.changeColor(Colors.blue);
+                                    });
+                                  },
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
                 title: Text("Settings"),
                 leading: Icon(Icons.settings),
               ),
